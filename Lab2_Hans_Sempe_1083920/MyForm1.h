@@ -225,8 +225,8 @@ namespace Lab2HansSempe1083920 {
 		  //int LL = 1 + rand() % (10 + 1 - 1);
  
 		  
-
-		  int k = 0;
+		  int p = 0;
+		  int k = 1;
 		  int t, l;
 
 private: System::Void timer1_Tick(System::Object^ sender, System::EventArgs^ e) {
@@ -236,16 +236,18 @@ private: System::Void timer1_Tick(System::Object^ sender, System::EventArgs^ e) 
 		//punteroT == &T;
 		//punteroL == &L;
 
-
-
       	t = *generarAtor(1,10);
 		l = *generarAlib(1,10);
 
-
 	if (k >= 70){
 		timer1->Enabled = false;
-		MessageBox::Show("Ha salido de su programa con exito", "Message", MessageBoxButtons::OK, MessageBoxIcon::Information);
+		MessageBox::Show("¡LA TORTUGA GANA! ¡BRAVO!", "Ganador", MessageBoxButtons::OK, MessageBoxIcon::Information);
 	}
+	else if (p >= 70) {
+		timer1->Enabled = false;
+		MessageBox::Show("La liebre gana. Ni hablar", "Ganador", MessageBoxButtons::OK, MessageBoxIcon::Information);
+	}
+	
 	else
 	{
 		if (t == 1 || t == 2 || t == 3 || t == 4 || t == 5)
@@ -316,15 +318,144 @@ private: System::Void timer1_Tick(System::Object^ sender, System::EventArgs^ e) 
 			Campo->Rows[0]->Cells[k - 3]->Value = " ";
 
 		}
+
+		if (l == 1 || l == 2) {
+			Campo->Rows[0]->Cells[p]->Value = "H";
+		}
+		if (l == 3 || l == 4) {
+			p = p + 9;
+			Campo->Rows[0]->Cells[p]->Value = "H";
+			Campo->Rows[0]->Cells[p - 9]->Value = " ";
+		}
+		if (l == 5) {
+
+			if (p < 12) {
+
+				if (p < 11) {
+
+					if (p < 10) {
+
+						if (p < 9) {
+
+							if (p < 8) {
+								
+								if (p < 7) {
+
+									if (p < 6) {
+
+										if (p < 5) {
+
+											if (p < 4) {
+
+												if (p < 3) {
+
+													if (p < 2) {
+
+														if (p < 1) {
+															Campo->Rows[0]->Cells[p]->Value = "H";
+														}
+														else {
+															p = p - 1;
+															Campo->Rows[0]->Cells[p]->Value = "H";
+															Campo->Rows[0]->Cells[p + 1]->Value = " ";
+														}
+													}
+													else {
+														p = p - 2;
+														Campo->Rows[0]->Cells[p]->Value = "H";
+														Campo->Rows[0]->Cells[p + 2]->Value = " ";
+													}
+												}
+												else {
+													p = p - 3;
+													Campo->Rows[0]->Cells[p]->Value = "H";
+													Campo->Rows[0]->Cells[p + 3]->Value = " ";
+												}
+											}
+											else {
+												p = p - 4;
+												Campo->Rows[0]->Cells[p]->Value = "H";
+												Campo->Rows[0]->Cells[p + 4]->Value = " ";
+											}
+										}
+										else {
+											p = p - 5;
+											Campo->Rows[0]->Cells[p]->Value = "H";
+											Campo->Rows[0]->Cells[p + 5]->Value = " ";
+										}
+									}
+									else {
+										p = p - 6;
+										Campo->Rows[0]->Cells[p]->Value = "H";
+										Campo->Rows[0]->Cells[p + 6]->Value = " ";
+									}
+								}
+								else {
+									p = p - 7;
+									Campo->Rows[0]->Cells[p]->Value = "H";
+									Campo->Rows[0]->Cells[p + 7]->Value = " ";
+								}
+							}
+							else {
+								p = p - 8;
+								Campo->Rows[0]->Cells[p]->Value = "H";
+								Campo->Rows[0]->Cells[p + 8]->Value = " ";
+							}
+						}
+						else {
+							p = p - 9;
+							Campo->Rows[0]->Cells[p]->Value = "H";
+							Campo->Rows[0]->Cells[p + 9]->Value = " ";
+						}
+					}
+					else {
+						p = p - 10;
+						Campo->Rows[0]->Cells[p]->Value = "H";
+						Campo->Rows[0]->Cells[p + 10]->Value = " ";
+					}
+				}
+				else {
+					p = p - 11;
+					Campo->Rows[0]->Cells[p]->Value = "H";
+					Campo->Rows[0]->Cells[p + 11]->Value = " ";
+				}
+			}
+			else {
+				p = p - 12;
+				Campo->Rows[0]->Cells[p]->Value = "H";
+				Campo->Rows[0]->Cells[p + 12]->Value = " ";
+			}
+		}
+		if (l == 6 || l == 7 || l == 8) {
+			p++;
+			Campo->Rows[0]->Cells[p]->Value = "H";
+			Campo->Rows[0]->Cells[p - 1]->Value = " ";
+		}
+		if (l == 9 || l == 10) {
+
+			if (p < 2) {
+
+				if (p < 1) {
+
+					Campo->Rows[0]->Cells[p]->Value = "H";
+				}
+				else {
+					p = p - 1;
+					Campo->Rows[0]->Cells[p]->Value = "H";
+					Campo->Rows[0]->Cells[p + 1]->Value = " ";
+				}
+			}
+			else {
+				p = p - 2;
+				Campo->Rows[0]->Cells[p]->Value = "H";
+				Campo->Rows[0]->Cells[p + 2]->Value = " ";
+			}
+		}
+
+		if (k == p) {
+			Campo->Rows[0]->Cells[k]->Style->BackColor = Color::Red;
+		}
 	}
-
-
-	if (l == 1 || l == 2) {
-
-	}
-
-
-	
 
 
     }
