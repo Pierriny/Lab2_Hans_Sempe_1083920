@@ -108,7 +108,5 @@ namespace Lab2HansSempe1083920 {
 
 	}
 
-
-
 	};
 }
