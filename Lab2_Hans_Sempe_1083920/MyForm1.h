@@ -49,6 +49,7 @@ namespace Lab2HansSempe1083920 {
 
 	private: System::Windows::Forms::Label^ label1;
 	private: System::Windows::Forms::Label^ label2;
+	private: System::Windows::Forms::Label^ label3;
 	private: System::ComponentModel::IContainer^ components;
 
 	private:
@@ -72,6 +73,7 @@ namespace Lab2HansSempe1083920 {
 			this->timer1 = (gcnew System::Windows::Forms::Timer(this->components));
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->label2 = (gcnew System::Windows::Forms::Label());
+			this->label3 = (gcnew System::Windows::Forms::Label());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->Campo))->BeginInit();
 			this->SuspendLayout();
 			// 
@@ -108,6 +110,7 @@ namespace Lab2HansSempe1083920 {
 			this->button2->TabIndex = 2;
 			this->button2->Text = L"Reiniciar";
 			this->button2->UseVisualStyleBackColor = false;
+			this->button2->Click += gcnew System::EventHandler(this, &MyForm1::button2_Click);
 			// 
 			// timer1
 			// 
@@ -140,12 +143,26 @@ namespace Lab2HansSempe1083920 {
 			this->label2->TabIndex = 4;
 			this->label2->Text = L".";
 			// 
+			// label3
+			// 
+			this->label3->AutoSize = true;
+			this->label3->BackColor = System::Drawing::Color::White;
+			this->label3->Font = (gcnew System::Drawing::Font(L"Times New Roman", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label3->ForeColor = System::Drawing::Color::Red;
+			this->label3->Location = System::Drawing::Point(358, 104);
+			this->label3->Name = L"label3";
+			this->label3->Size = System::Drawing::Size(348, 22);
+			this->label3->TabIndex = 5;
+			this->label3->Text = L"Cada cuadro rojo representa un: ¡OUCH!";
+			// 
 			// MyForm1
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
 			this->ClientSize = System::Drawing::Size(916, 211);
+			this->Controls->Add(this->label3);
 			this->Controls->Add(this->label2);
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->button2);
@@ -456,8 +473,23 @@ private: System::Void timer1_Tick(System::Object^ sender, System::EventArgs^ e) 
 			Campo->Rows[0]->Cells[k]->Style->BackColor = Color::Red;
 		}
 	}
-
-
     }
+
+
+private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
+
+	k = 0;
+	p = 0;
+
+	for (int g = 0; g < 79; g++) {
+
+		Campo->Rows[0]->Cells[g]->Style->BackColor = Color::White;
+		Campo->Rows[0]->Cells[g]->Value = " ";
+
+	}
+
+	timer1->Enabled = true;
+
+}
 };
 }
